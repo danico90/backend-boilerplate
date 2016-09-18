@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.EntityFrameworkCore;
 using Base.Models;
+using Base.ModelsMock;
 using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace Base
@@ -24,7 +25,7 @@ namespace Base
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-            
+
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -36,10 +37,11 @@ namespace Base
             services.AddMvc();
 
             string connectionString = Configuration.GetConnectionString("DevConnection");
-            
+
             services.AddDbContext<BaseContext>(options => options.UseMySQL(connectionString));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
 
         }
 

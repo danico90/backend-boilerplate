@@ -1,16 +1,15 @@
-using System;
 using System.Linq;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using Base.Models;
 
-namespace Base.Models
+namespace Base.ModelsMock
 {
-    public class UserRepository : IUserRepository
+    public class UserRepositoryMock : IUserRepository
     {
         
         private BaseContext context;
 
-        public UserRepository(BaseContext context)
+        public UserRepositoryMock(BaseContext context)
         {
             //Add(new TodoItem { Name = "Item1" });
             this.context = context;
@@ -18,7 +17,11 @@ namespace Base.Models
 
         public IEnumerable<User> GetAll()
         {
-            return context.Users.Include(u => u.UserRoles);
+            return new User[] {
+                    new User() { UserId= 1, Name= "Daniel", LastName= "Jimenez" },
+                    new User() { UserId= 2, Name= "Daniel", LastName= "Jimenez" },
+                    new User() { UserId= 3, Name= "Daniel", LastName= "Jimenez" }
+                };
         }
 
         public void Add(User item)

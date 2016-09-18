@@ -7,22 +7,23 @@ namespace Base.Models
     /// <summary>
     /// User class
     /// </summary>
-    public class User
+    public class UserRole
     {
-        public User()
+        public UserRole()
         {
         }
         
         [Key]
         public int UserId { get; set; }
-        
-        [MaxLength(30)]
-        public string Name { get; set; }
-        
-        [MaxLength(50)]
-        public string LastName { get; set; }
 
-        public List<UserRole> UserRoles { get; set; }
+        public User User { get; set; }
+
+        [Key]
+        public int RoleId { get; set; }
+
+        public Role Role { get; set; }
+        
+        
     }
 }
 

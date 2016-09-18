@@ -12,6 +12,7 @@ using MySql.Data.EntityFrameworkCore;
 using Base.Models;
 using Base.ModelsMock;
 using MySQL.Data.EntityFrameworkCore.Extensions;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace Base
 {
@@ -42,6 +43,8 @@ namespace Base
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+            
+            //services.AddScoped<IUserRepository, UserRepositoryMock>();
 
         }
 
@@ -52,6 +55,8 @@ namespace Base
             loggerFactory.AddDebug();
 
             app.UseMvc();
+
+            app.UseStaticFiles();
         }
     }
 }

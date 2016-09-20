@@ -1,0 +1,73 @@
+/*==========  Mobile First Methods  ==========*/
+
+/* Custom, iPhone Retina */
+@mixin bp-mf-xxs {
+	@media only screen and (min-width : 320px) {
+        @content
+    }
+}
+
+/*= Extra Small Devices, Phones =*/ 
+@mixin bp-mf-xs {
+	@media only screen and (min-width : 480px) {
+        @content
+    }
+}
+
+/* Small Devices, Tablets */
+@mixin bp-mf-sm {
+	@media only screen and (min-width : 768px) {
+        @content
+    }
+}
+
+/* Medium Devices, Desktops */
+@mixin bp-mf-md {
+	@media only screen and (min-width: 992px) {
+		@content
+	}
+}
+
+/* Large Devices, Wide Screens */
+@mixin bp-mf-lg {
+	@media only screen and (min-width: 1200px) {
+		@content
+	}
+}
+
+/*==========  No-Mobile First Methods  ==========*/
+
+/* Large Devices, Wide Screens */
+@mixin bp-df-lg {
+    @media only screen and (max-width : 1200px) {
+
+    }
+}
+
+/* Medium Devices, Desktops */
+@mixin bp-df-md {
+	@media only screen and (max-width: 992px) {
+		@content
+	}
+}
+
+/* Small Devices, Tablets */
+@mixin bp-df-sm {
+	@media only screen and (max-width: 768px) {
+		@content
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@mixin bp-df-xs {
+	@media only screen and (max-width: 480px) {
+		@content
+	}
+}
+
+/* Custom, iPhone Retina */  
+@mixin bp-df-xxs {
+	@media only screen and (max-width: 320px) {
+		@content
+	}
+}
